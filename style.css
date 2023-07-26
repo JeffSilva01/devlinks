@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+:root {
+  --text-color: rgba(255, 255, 255, 1);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --toggle-handle-color: rgba(255, 255, 255, 1);
+  --switch-shadow:  0px 2px 8px rgba(0, 0, 0, 0.25);
+
+  --bg-url: url('./assets/bg-mobile.jpg');
+  --bg-switch-url: url('./assets/moon-stars.svg');
+}
+
+.light {
+  --text-color: rgba(0, 0, 0, 1);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+
+  --bg-url: url('./assets/bg-mobile-light.jpg');
+  --bg-switch-url: url('./assets/sun.svg');
+}
+
+body {
+  background: var(--bg-url) no-repeat top center /cover;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  height: calc(100vh - 200px);
+  margin: 56px auto;
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;  
+  pading: 24px;
+}
+
+#profile img {
+  width: 112px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid #aaaaaa88;
+}
+
+#profile p {
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 24px; 
+}
+
+#switch {
+  width: 64px;
+  height: 24px;
+  margin:  24px auto;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 999px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+#switch::before {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff var(--bg-switch-url) no-repeat center;
+
+  box-shadow: var(--switch-shadow);
+}
+
+.light #switch {
+  justify-content: flex-end;
+}
+
+#links {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#links a {
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 56px;
+  text-align: center;
+  border-radius: 8px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+#links a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+footer p {
+  margin-bottom: 12px;
+}
+
+footer span {
+  padding: 2px 5px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 3px;
+}
